@@ -94,8 +94,10 @@ class ShopController extends Controller
      * @param  \App\shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function destroy(shop $shop)
+    public function destroy($id)
     {
-        //
+        $shop = Shop::find($id);
+        $shop->delete();
+        return redirect('/shops');
     }
 }
