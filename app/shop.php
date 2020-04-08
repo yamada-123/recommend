@@ -10,4 +10,9 @@ class shop extends Model
     {
         return $this->belongsTo('App\category');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
