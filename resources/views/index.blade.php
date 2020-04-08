@@ -19,7 +19,9 @@
         @endforeach
           </table>
 
-          <div>
-            <a href = {{ route('shop.new' )}} class = 'btn btn-outline-primary'>新規作成</a>
-          </div>
+        @auth
+            <div>
+              <a href={{ route('shop.new') }} class='btn btn-outline-primary'>新規作成</a>
+            </div>
+        @endauth
 @endsection
