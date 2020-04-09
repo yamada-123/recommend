@@ -17,7 +17,6 @@ Route::get('/',function(){
 Route::get('/plans','PlanController@index')->name('plan.list');
 Route::get('/plan/new','PlanController@create')->name('plan.new');
 Route::post('/plan', 'PlanController@store')->name('plan.store');
-
 Route::get('/plan/edit/{id}','PlanController@edit')->name('plan.edit');
 Route::post('/plan/update/{id}','PlanController@update')->name('plan.update');
 

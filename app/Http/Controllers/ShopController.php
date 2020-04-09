@@ -47,7 +47,7 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        $shop = new Shop;
+        $shop = new Shop();
         $user = \Auth::user();
 
         $shop->name = request('name');
