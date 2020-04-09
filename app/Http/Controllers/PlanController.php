@@ -12,10 +12,15 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $plans = Plan::all();
-        return view('plan.index',['plans' => $plans]);
+        if($request->filled('keyword')){
+            $keyword = $request->input('keyword');
+            $plans = Plan::where('content','like','%'.$keyword . '%')->get();
+        }else{
+            $plans = Plan::all();
+        }
+            return view('plan.index',['plans' => $plans]);
     }
 
     /**
@@ -25,12 +30,7 @@ class PlanController extends Controller
      */
     public function create(Request $fequest)
     {
-        $plan = new Plan();
-
-        $plan->content = 'テスト';
-        $plan->user_name = '松本';
-        $plan->save();
-        return redirect('/plans');
+        return view('plan.new');
 
     }
 
@@ -42,7 +42,12 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $plan = new Plan();
+
+        $plan->content = $request->content;
+        $plan->user_name = $request->user_name;
+        $plan->save();
+        return redirect()->route('plan.show',['id' => $plan->id]);
     }
 
     /**
@@ -65,9 +70,11 @@ class PlanController extends Controller
      * @param  \App\Plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plan $plan)
+    public function edit(Request $request, $id, Plan $plan)
     {
-        //
+        $message = 'This is your plan ' . $id;
+        $plan = Plan::find($id);
+        return view('plan.edit', ['message' => $message, 'plan' => $plan]);
     }
 
     /**
@@ -77,9 +84,14 @@ class PlanController extends Controller
      * @param  \App\Plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plan $plan)
+    public function update(Request $request, $id, Plan $plan)
     {
-        //
+        $plan = Plan::find($id);
+
+        $plan->content = $request->content;
+        $plan->user_name = $request->user_name;
+        $plan->save();
+        return redirect()->route('plan.show',['id' => $plan->id]);
     }
 
     /**

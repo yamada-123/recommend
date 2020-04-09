@@ -21,7 +21,7 @@
             </tr>
         @endforeach
           </table>
-
+          <a href={{ route('plan.list') }} class = 'btn btn-outline-primary'>お店のTodoリストへ</a>
         @auth
             <div>
               <a href={{ route('shop.new') }} class='btn btn-outline-primary'>新規作成</a>
