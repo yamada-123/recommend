@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,9 +47,11 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         $plan = new Plan();
+        $user = \Auth::user();
 
         $plan->content = $request->content;
         $plan->user_name = $request->user_name;
+        $plan->user_id = $user->id;
         $plan->save();
         return redirect()->route('plan.show',['id' => $plan->id]);
     }
