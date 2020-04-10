@@ -52,6 +52,7 @@ class ShopController extends Controller
         $shop->name = request('name');
         $shop->address = request('address');
         $shop->category_id = $request->category_id;
+        ((int)$shop->category_id);
         // $request->category_id
         eval(\Psy\sh());
         $shop->user_id = $user->id;
