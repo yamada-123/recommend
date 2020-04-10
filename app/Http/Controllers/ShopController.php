@@ -41,7 +41,7 @@ class ShopController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * * @param  \App\Shop  $shop
+     * @param  \App\Shop  $shop
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
