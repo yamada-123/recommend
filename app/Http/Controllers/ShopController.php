@@ -41,11 +41,10 @@ class ShopController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *@param  \App\Shop  $shop
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id, Shop $shop)
     {
         $shop = new Shop();
         $user = \Auth::user();
@@ -75,6 +74,7 @@ class ShopController extends Controller
         }
         return view('show', ['shop' => $shop, 'login_user_id' => $login_user_id]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
