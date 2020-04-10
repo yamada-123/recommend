@@ -51,7 +51,7 @@ class ShopController extends Controller
 
         $shop->name = request('name');
         $shop->address = request('address');
-        $shop->category_id = request(category_id);
+        $shop->category_id = $request->category_id;
         // $request->category_id
         eval(\Psy\sh());
         $shop->user_id = $user->id;
@@ -103,7 +103,7 @@ class ShopController extends Controller
         $shop = Shop::find($id);
         $shop->name = request('name');
         $shop->address = request('address');
-        $shop->category_id = $request->category_id;
+        $shop->category_id = request('category_id');
         $shop->save();
         return redirect()->route('shop.detail',['id' => $shop->id]);
     }
