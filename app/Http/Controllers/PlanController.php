@@ -32,7 +32,7 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $fequest)
+    public function create(Request $request)
     {
         return view('plan.new');
 
