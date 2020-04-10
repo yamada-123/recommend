@@ -53,7 +53,7 @@ class ShopController extends Controller
         $shop->name = request('name');
         $shop->address = request('address');
         $shop->category_id = request('category_id');
-        $shop->user_id = request('user_id');
+        $shop->user_id = $user->id;
         $shop->save();
         return redirect()->route('shop.detail',['id' => $shop->id]);
     }
