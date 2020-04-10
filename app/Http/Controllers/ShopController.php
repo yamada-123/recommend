@@ -52,7 +52,7 @@ class ShopController extends Controller
 
         $shop->name = request('name');
         $shop->address = request('address');
-        $shop->category_id = $shop->category->id;
+        $shop->category_id = request('category_id');
         $shop->user_id = $user->id;
         $shop->save();
         return redirect()->route('shop.detail',['id' => $shop->id]);
@@ -96,7 +96,7 @@ class ShopController extends Controller
      * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id,Shop $shop)
+    public function update(Request $request, $id, Shop $shop)
     {
         $shop = Shop::find($id);
         $shop->name = request('name');
