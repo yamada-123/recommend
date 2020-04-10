@@ -10,7 +10,7 @@
           </tr>  
         @foreach ($shops as $shop)
             <tr>
-                
+                <td>{{ $shop->category->name }}</td>
                 <td>
                     <a href = {{ route('shop.detail',['id' => $shop->id]) }}>
                           {{ $shop->name }}
