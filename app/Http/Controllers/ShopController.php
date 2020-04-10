@@ -50,13 +50,13 @@ class ShopController extends Controller
         $shop = new Shop();
         $user = \Auth::user();
 
-        $shop->name = request('name');
-        $shop->address = request('address');
+        $shop->name = $request->name;
+        $shop->address = $request->address;
         // $shop->category_id = $request->category_id;
         // $shop->category_id = ((int)$shop->category_id);
         $shop->category_id = 1;
         // eval(\Psy\sh());
-        $shop->user_id = $user->id;
+        $shop->user_id = 1;
         $shop->save();
         return redirect()->route('shop.detail',['id' => $shop->id]);
     }
