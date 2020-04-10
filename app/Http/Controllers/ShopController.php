@@ -41,6 +41,7 @@ class ShopController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * * @param  \App\Shop  $shop
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -54,7 +55,7 @@ class ShopController extends Controller
         // $shop->category_id = $request->category_id;
         // $shop->category_id = ((int)$shop->category_id);
         $shop->category_id = 1;
-        eval(\Psy\sh());
+        // eval(\Psy\sh());
         $shop->user_id = $user->id;
         $shop->save();
         return redirect()->route('shop.detail',['id' => $shop->id]);
