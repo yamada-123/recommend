@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\shop;
+use App\Shop;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -61,7 +61,7 @@ class ShopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\shop  $shop
+     * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -79,10 +79,10 @@ class ShopController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\shop  $shop
+     * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function edit(shop $shop,$id)
+    public function edit(Shop $shop,$id)
     {
         $shop = Shop::find($id);
         $categories = Category::all()->pluck('name','id');
@@ -93,10 +93,10 @@ class ShopController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\shop  $shop
+     * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id,shop $shop)
+    public function update(Request $request, $id,Shop $shop)
     {
         $shop = Shop::find($id);
         $shop->name = request('name');
@@ -109,7 +109,7 @@ class ShopController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\shop  $shop
+     * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
