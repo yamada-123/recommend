@@ -44,14 +44,16 @@ class ShopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id, Shop $shop)
+    public function store(Request $request)
     {
         $shop = new Shop();
         $user = \Auth::user();
 
         $shop->name = request('name');
         $shop->address = request('address');
-        $shop->category_id = request('category_id');
+        $shop->category_id = request(category_id);
+        // $request->category_id
+        eval(\Psy\sh());
         $shop->user_id = $user->id;
         $shop->save();
         return redirect()->route('shop.detail',['id' => $shop->id]);
