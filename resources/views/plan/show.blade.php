@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-        <h1>行く予定のお店</h1>
+        <h1>気になるお店</h1>
         <br><br>
         <h4>お店</h4><p>{{ $plan->content }}</p>
         <br>

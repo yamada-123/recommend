@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>行く予定のお店を登録</h1>
+    <h1>気になるお店を登録</h1>
     @if ($errors->any())
 <div class = "alert alert-danger">
     <ul>
@@ -13,11 +13,11 @@
     @endif
     {{ Form::open(['route' => 'plan.store']) }}
         <div class='form-group'>
-            {{ Form::label('content', 'Content:') }}
+            {{ Form::label('content', '気になるお店:') }}
             {{ Form::text('content', null) }}
         </div>
         <div class='form-group'>
-            {{ Form::label('user_name', 'Name:') }}
+            {{ Form::label('user_name', '訪問予定日:') }}
             {{ Form::text('user_name', null) }}
         </div>
         <div class="form-group">
