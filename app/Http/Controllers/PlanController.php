@@ -91,7 +91,7 @@ class PlanController extends Controller
      * @param  \App\Plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Plan $plan)
+    public function update(PlanShopForm $request, $id, Plan $plan)
     {
         $plan = Plan::find($id);
 

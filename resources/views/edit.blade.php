@@ -2,6 +2,15 @@
 
 @section('content')
     <h1>{{$shop->name}}を編集する</h1>
+    @if ($errors->any())
+        <div class = "alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     {{ Form::model($shop,['route' => ['shop.update',$shop->id]])}}
     {{ Form::open(['route' => 'shop.store']) }}
         <div class='form-group'>
