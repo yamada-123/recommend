@@ -2,6 +2,15 @@
 
 @section('content')
     <h1>行く予定のお店を登録</h1>
+    @if ($errors->any())
+<div class = "alert alert-danger">
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+    @endif
     {{ Form::open(['route' => 'plan.store']) }}
         <div class='form-group'>
             {{ Form::label('content', 'Content:') }}

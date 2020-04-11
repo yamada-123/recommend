@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Plan;
 use Illuminate\Http\Request;
+use App\Http\Requests\PlanShopForm;
 
 class PlanController extends Controller
 {
@@ -20,9 +21,9 @@ class PlanController extends Controller
     {
         if($request->filled('keyword')){
             $keyword = $request->input('keyword');
-            $plans = Plan::where('content','like','%'.$keyword . '%')->get();
+            $plans = Plan::where('content','like','%'.$keyword . '%')->paginate(5);
         }else{
-            $plans = Plan::all();
+            $plans = Plan::select('*')->paginate(5);
         }
             return view('plan.index',['plans' => $plans]);
     }
@@ -44,7 +45,7 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlanShopForm $request)
     {
         $plan = new Plan();
         $user = \Auth::user();

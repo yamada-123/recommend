@@ -27,4 +27,5 @@
               <a href={{ route('shop.new') }} class='btn btn-outline-primary'>新規作成</a>
             </div>
         @endauth
+       {{$shops ->links()}}
 @endsection

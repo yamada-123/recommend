@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Shop;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreShopForm;
+use Illuminate\Database\Eloquent\Collection;
 
 class ShopController extends Controller
 {
@@ -19,11 +21,12 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
+
         if($request->filled('keyword')){
             $keyword = $request->input('keyword');
-            $shops = Shop::where('name', 'like', '%'. $keyword . '%')->get();
+            $shops = Shop::where('name', 'like', '%'. $keyword . '%')->paginate(5);
         }else{
-            $shops = Shop::all();
+            $shops = Shop::select('*')->paginate(5);
         }
         return view('index',['shops' => $shops ]);
     }
@@ -45,7 +48,7 @@ class ShopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreShopForm $request)
     {
         $shop = new Shop();
         $user = \Auth::user();

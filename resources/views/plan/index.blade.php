@@ -24,4 +24,5 @@
             <a href={{ route('plan.new') }} class = 'btn btn-outline-primary'> 新規投稿</a>
         </div>
       @endauth
+      {{$plans ->links()}}
 @endsection
