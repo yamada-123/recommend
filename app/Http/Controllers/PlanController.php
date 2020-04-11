@@ -21,9 +21,9 @@ class PlanController extends Controller
     {
         if($request->filled('keyword')){
             $keyword = $request->input('keyword');
-            $plans = Plan::where('content','like','%'.$keyword . '%')->paginate(5);
+            $plans = Plan::where('content','like','%'.$keyword . '%')->paginate(2);
         }else{
-            $plans = Plan::select('*')->paginate(5);
+            $plans = Plan::select('*')->paginate(2);
         }
             return view('plan.index',['plans' => $plans]);
     }

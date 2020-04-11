@@ -24,9 +24,9 @@ class ShopController extends Controller
 
         if($request->filled('keyword')){
             $keyword = $request->input('keyword');
-            $shops = Shop::where('name', 'like', '%'. $keyword . '%')->paginate(5);
+            $shops = Shop::where('name', 'like', '%'. $keyword . '%')->paginate(2);
         }else{
-            $shops = Shop::select('*')->paginate(5);
+            $shops = Shop::select('*')->paginate(2);
         }
         return view('index',['shops' => $shops ]);
     }

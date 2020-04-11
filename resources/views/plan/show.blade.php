@@ -2,8 +2,10 @@
 
 @section('content')
         <h1>行く予定のお店</h1>
-        <p>{{ $plan->content }}</p>
-        <p>{{ $plan->user_name}}</p>
+        <br><br>
+        <h4>お店</h4><p>{{ $plan->content }}</p>
+        <br>
+        <h4>訪問予定日</h4><p>{{ $plan->user_name}}</p>
 
         <p>
         <a href={{ route('plan.list') }} class='btn btn-outline-primary'>一覧に戻る</a>
