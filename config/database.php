@@ -71,6 +71,7 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+            'api_maps' => env('GOOGLE_MAP_API_KEY', ''), 
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

@@ -4,7 +4,12 @@
         <h1>{{ $shop->name }}</h1>
         <div>
             <p>{{ $shop->category->name }}</p>
-            <p>{{ $shop->address }}</p>
+            <p>{{ $shop->address }}</p> 
+            <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key={{env('GOOGLE_MAP_API_KEY')}}&amp;q={{ $shop->address }}'
+    width='100%'
+    height='320'
+    frameborder='0'>
+    </iframe>
         </div>
 
 
